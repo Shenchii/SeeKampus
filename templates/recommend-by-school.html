@@ -1,0 +1,143 @@
+{% extends 'base.html' %} {{ super() }}
+{% block title %}
+    <title>School Finder</title>
+{% endblock %}
+{% block sidebar %}
+    <aside id="sidebar" class="sidebar">
+
+        <ul class="sidebar-nav" id="sidebar-nav">
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="/home">
+                    <i class="bi bi-house-door"></i>
+                    <span>Home</span>
+                </a>
+            </li><!-- End Home Nav -->
+
+            <li class="nav-item">
+                <a class="nav-link " href="/recommend-by-school">
+                    <i class="bi bi-menu-button-wide"></i>
+                    <span>School Finder</span>
+                </a>
+            </li><!-- End School Finder Nav -->
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" data-bs-target="#charts-nav" data-bs-toggle="collapse" href="#">
+                    <i class="bi bi-journal-text"></i><span>Top Courses</span><i class="bi bi-chevron-down ms-auto"></i>
+                </a>
+                <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                    <li>
+                        <a href="/top-courses-batangas">
+                            <i class="bi bi-circle"></i><span>Batangas</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/top-courses-cavite">
+                            <i class="bi bi-circle"></i><span>Cavite</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/top-courses-laguna">
+                            <i class="bi bi-circle"></i><span>Laguna</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/top-courses-ncr">
+                            <i class="bi bi-circle"></i><span>NCR</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/top-courses-quezon">
+                            <i class="bi bi-circle"></i><span>Quezon Province</span>
+                        </a>
+                    <li>
+                        <a href="/top-courses-rizal">
+                            <i class="bi bi-circle"></i><span>Rizal</span>
+                        </a>
+                    </li>
+                </ul>
+            </li><!-- End Top Courses Nav -->
+        </ul>
+
+    </aside><!-- End Sidebar-->
+{% endblock %}
+{% block content %}
+    <main id="main" class="main">
+        <div class="pagetitle">
+            <h1>School Finder</h1>
+            <nav>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/home">Home</a></li>
+                    <li class="breadcrumb-item active">School Finder</li>
+                </ol>
+            </nav>
+        </div><!-- End Page Title -->
+        <!-- Custom Styled Validation -->
+        <div class="card">
+            <div class="card-body">
+                <br>
+                <form method="POST" action="/recommended-schools" class="row g-4 needs-validation" novalidate>
+                    <div class="col-md-6">
+                        <label for="course" class="form-label">Course</label>
+                        <select class="form-select" id="course" name="course" required>
+                            <option selected disabled value="">Select Course</option>
+                            <option>Bachelor of Science in Elementary Education</option>
+                            <option>Bachelor of Science in Accountancy</option>
+                            <option>Bachelor of Science in Architecture</option>
+                            <option>Bachelor of Science in Civil Engineering</option>
+                            <option>Bachelor of Science in Criminology</option>
+                            <option>Bachelor of Science in Electrical Engineering</option>
+                            <option>Bachelor of Science in Electronics Engineering</option>
+                            <option>Bachelor of Science in Mechanical Engineering</option>
+                            <option>Bachelor of Science in Nursing</option>
+                            <option>Bachelor of Science in Psychology</option>
+                            <option>Bachelor of Science in Secondary Education</option>
+                        </select>
+                        <div class="invalid-feedback">
+                            Please select a valid Course.
+                        </div>
+                    </div>
+                    <div class="col-md-3 ">
+                        <label for="tuition_fee" class="form-label">Tuition Fee</label>
+                        <select class="form-select" id="tuition_fee" name="tuition_fee" required>
+                            <option selected disabled value="">Select Tuition</option>
+                            <option>Free Tuition</option>
+                            <option>0 - 20000</option>
+                            <option>21000 - 40000</option>
+                            <option>41000 - 60000</option>
+                            <option>61000 - 80000</option>
+                            <option>81000 - 100000</option>
+                            <option>101000 - 120000</option>
+                            <option>150000 above</option>
+                        </select>
+                        <div class="invalid-feedback">
+                            Please select a valid input.
+                        </div>
+                    </div>
+                    <div class="col-md-3 ">
+                        <label for="location" class="form-label">Location</label>
+                        <select class="form-select" id="location" name="location" required>
+                            <option selected disabled value="">Select Location</option>
+                            <option>Any</option>
+                            <option>Batangas</option>
+                            <option>Cavite</option>
+                            <option>Laguna</option>
+                            <option>NCR</option>
+                            <option>Quezon Province</option>
+                            <option>Rizal</option>
+                        </select>
+                        <div class="invalid-feedback">
+                            Please select a valid Location.
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <button class="btn btn-primary" type="submit">Submit form</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+
+        <!-- End Custom Styled Validation -->
+    </main>
+{% endblock %}

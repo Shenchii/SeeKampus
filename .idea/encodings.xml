@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/Historical Data" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/SeeKampus.db" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/convert dt.py" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/convert.py" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/label_encoder.joblib" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/reset db.py" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/scprofile.csv" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/scprofiles_dt.csv" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/static/assets" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/static/forms" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/templates/admin.html" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/templates/base.html" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/templates/dt test.html" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/templates/form.html" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/templates/home.html" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/templates/login.html" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/templates/no_school_found.html" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/templates/recommend-by-school.html" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/templates/recommended-schools-chart.html" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/templates/recommended-schools.html" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/templates/top-courses-batangas.html" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/templates/top-courses-cavite.html" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/templates/top-courses-laguna.html" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/templates/top-courses-ncr.html" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/templates/top-courses-quezon.html" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/templates/top-courses-rizal.html" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/templates/upload.html" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/templates/uploaded.html" charset="windows-1252" />
+  </component>
+</project>

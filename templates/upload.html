@@ -1,0 +1,150 @@
+{% extends 'base.html' %} {{ super() }}
+{% block title %}
+    <title>School Finders</title>
+{% endblock %}
+{% block sidebar %}
+    <aside id="sidebar" class="sidebar">
+
+        <ul class="sidebar-nav" id="sidebar-nav">
+
+            <li class="nav-item">
+                <a class="nav-link " href="/home">
+                    <i class="bi bi-house-door"></i>
+                    <span>Home</span>
+                </a>
+            </li><!-- End Home Nav -->
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="/recommend-by-school">
+                    <i class="bi bi-menu-button-wide"></i>
+                    <span>School Finder</span>
+                </a>
+            </li><!-- End School Finder Nav -->
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" data-bs-target="#charts-nav" data-bs-toggle="collapse" href="#">
+                    <i class="bi bi-journal-text"></i><span>Top Courses</span><i class="bi bi-chevron-down ms-auto"></i>
+                </a>
+                <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                    <li>
+                        <a href="/top-courses-batangas">
+                            <i class="bi bi-circle"></i><span>Batangas</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/top-courses-cavite">
+                            <i class="bi bi-circle"></i><span>Cavite</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/top-courses-laguna">
+                            <i class="bi bi-circle"></i><span>Laguna</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/top-courses-ncr">
+                            <i class="bi bi-circle"></i><span>NCR</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/top-courses-quezon">
+                            <i class="bi bi-circle"></i><span>Quezon Province</span>
+                        </a>
+                    <li>
+                        <a href="/top-courses-rizal">
+                            <i class="bi bi-circle"></i><span>Rizal</span>
+                        </a>
+                    </li>
+                </ul>
+            </li><!-- End Top Courses Nav -->
+
+            {% if current_user.is_authenticated %}
+                <li class="nav-item">
+                    <a class="nav-link " href="/upload">
+                        <i class="bi bi-journal-text"></i>
+                        <span>Upload Board Exams</span>
+                    </a>
+                </li><!-- End Upload Board Exams Nav --> {% endif %}
+
+
+        </ul>
+
+    </aside><!-- End Sidebar-->
+{% endblock %}
+{% block content %}
+    <main id="main" class="main">
+        <div class="pagetitle">
+            <h1>Upload Board Exams</h1>
+            <nav>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/home">Home</a></li>
+                    <li class="breadcrumb-item active">Upload</li>
+                </ol>
+            </nav>
+        </div><!-- End Page Title -->
+    <!-- Custom Styled Validation -->
+    <div class="card">
+            <div class="card-body">
+                <br>
+                <form method="POST" action="/upload" class="row g-4 needs-validation" enctype="multipart/form-data" novalidate>
+                    <div class="col-md-6">
+                        <label for="course" class="form-label">Course</label>
+                        <select class="form-select" id="course" name="course" required>
+                            <option selected disabled value="">Select Course</option>
+                            <option>Elementary Education</option>
+                            <option>Accountancy</option>
+                            <option>Architecture</option>
+                            <option>Civil Engineering</option>
+                            <option>Criminology</option>
+                            <option>Electrical Engineering</option>
+                            <option>Electronics Engineering</option>
+                            <option>Mechanical Engineering</option>
+                            <option>Nursing</option>
+                            <option>Psychology</option>
+                            <option>Secondary Education</option>
+                        </select>
+                        <div class="invalid-feedback">
+                            Please select a valid Course.
+                        </div>
+                    </div>
+                    <div class="col-md-3 ">
+                        <label for="year" class="form-label">Year</label>
+                        <select class="form-select" id="year" name="year" required>
+                            <option selected disabled value="">Select Year</option>
+                            <option>2010</option>
+                            <option>2011</option>
+                            <option>2012</option>
+                            <option>2013</option>
+                            <option>2014</option>
+                            <option>2015</option>
+                            <option>2016</option>
+                            <option>2017</option>
+                            <option>2018</option>
+                            <option>2019</option>
+                            <option>2020</option>
+                            <option>2021</option>
+                            <option>2022</option>
+                        </select>
+                        <div class="invalid-feedback">
+                            Please select a valid Year.
+                        </div>
+                    </div>
+                    <div class="col-md-3 ">
+                        <label for="batch" class="form-label">Batch</label>
+                        <select class="form-select" id="batch" name="batch" required>
+                            <option selected disabled value="">Select Batch</option>
+                            <option>a</option>
+                            <option>b</option>
+
+                        </select>
+                        <div class="invalid-feedback">
+                            Please select a batch.
+                        </div>
+                    </div>
+                    <input type="file" name="file">
+                    <button class="btn btn-primary" type="submit" value="Upload">Submit form</button>
+                    </form>
+            </div>
+        </div>
+    </main>
+{% endblock %}

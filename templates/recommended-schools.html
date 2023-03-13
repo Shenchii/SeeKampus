@@ -1,0 +1,185 @@
+{% extends 'base.html' %} {{ super() }}
+{% block title %}
+    <title>Results</title>
+{% endblock %}
+{% block sidebar %}
+    <aside id="sidebar" class="sidebar">
+
+        <ul class="sidebar-nav" id="sidebar-nav">
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="/home">
+                    <i class="bi bi-house-door"></i>
+                    <span>Home</span>
+                </a>
+            </li><!-- End Home Nav -->
+
+            <li class="nav-item">
+                <a class="nav-link " href="/recommend-by-school">
+                    <i class="bi bi-menu-button-wide"></i>
+                    <span>School Finder</span>
+                </a>
+            </li><!-- End School Finder Nav -->
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" data-bs-target="#charts-nav" data-bs-toggle="collapse" href="#">
+                    <i class="bi bi-journal-text"></i><span>Top Courses</span><i class="bi bi-chevron-down ms-auto"></i>
+                </a>
+                <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                    <li>
+                        <a href="/top-courses-batangas">
+                            <i class="bi bi-circle"></i><span>Batangas</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/top-courses-cavite">
+                            <i class="bi bi-circle"></i><span>Cavite</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/top-courses-laguna">
+                            <i class="bi bi-circle"></i><span>Laguna</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/top-courses-ncr">
+                            <i class="bi bi-circle"></i><span>NCR</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/top-courses-quezon">
+                            <i class="bi bi-circle"></i><span>Quezon Province</span>
+                        </a>
+                    <li>
+                        <a href="/top-courses-rizal">
+                            <i class="bi bi-circle"></i><span>Rizal</span>
+                        </a>
+                    </li>
+                </ul>
+            </li><!-- End Top Courses Nav -->
+        </ul>
+
+    </aside><!-- End Sidebar-->
+{% endblock %}
+{% block content %}
+    <main id="main" class="main">
+        <div class="pagetitle">
+            <h1>Recommended Results</h1>
+            <nav>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/home">Home</a></li>
+                    <li class="breadcrumb-item active">Recommended Results</li>
+                </ol>
+            </nav>
+        </div><!-- End Page Title -->
+
+        <div class="card">
+            <div class="card-body"><br>
+                <div class="d-flex justify-content-center">
+                    <h5>User's Preferences</h5>
+                </div>
+                <div class="form-group">
+                    <label for="course">Course: {{ course }}</label>
+                </div>
+                <div class="form-group">
+                    <label for="tuition_fee">Tuition Fee: {{ tuition_fee }}</label>
+                </div>
+                <div class="form-group">
+                    <label for="location">(or) Location: {{ location }}</label>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Table with stripped rows -->
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th scope="col">Rank</th>
+                <th scope="col">School</th>
+                <th scope="col">Tuition Fee</th>
+                <th scope="col">City</th>
+{#                    <th scope="col">Passing Rates</th>#}
+            </tr>
+            </thead>
+            <tbody>
+            {% for school in recommended_schools %}
+                <tr>
+                    <td>{{ loop.index }}</td>
+                    <td>{{ school['School'] }}</td>
+                    <td>{{ school['Tuition_Fee'] }}</td>
+                    <td>{{ school['City'] }}</td>
+{#                                        <td>{{ school['yhat_values'] }}</td>#}
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        <!-- End Table with stripped rows -->
+        {% block chart %}
+            <div class="card-body">
+                <h5 class="card-title">Schools Performance for {{ course }} <span>/ {{ location }}</span></h5>
+
+                <!-- Line Chart / LET PASSERS -->
+                <div id="reportsChart"></div>
+
+                <script>
+                    document.addEventListener("DOMContentLoaded", () => {
+
+                        new ApexCharts(document.querySelector("#reportsChart"), {
+                            series: [
+                                {% for school in recommended_schools %}
+                                    {
+                                        name: '{{ school.School }}',
+                                        data: {{ school.yhat_values|tojson }},
+                                    },
+                                {% endfor %}
+                            ],
+                            chart: {
+                                height: 350,
+                                type: 'area',
+                                toolbar: {
+                                    show: false
+                                },
+                            },
+                            markers: {
+                                size: 4
+                            },
+                            colors: ['#4154f1', '#2eca6a', '#ff771d', '#c02a2a', '#c023da', '#FFA500', '#FFFF00', '#00FF00', '#0000FF', '#4B0082', '#9400D3'],
+                            fill: {
+                                type: "gradient",
+                                gradient: {
+                                    shadeIntensity: 1,
+                                    opacityFrom: 0.3,
+                                    opacityTo: 0.4,
+                                    stops: [0, 90, 100]
+                                }
+                            },
+                            dataLabels: {
+                                enabled: false
+                            },
+                            stroke: {
+                                curve: 'smooth',
+                                width: 2
+                            },
+                            xaxis: {
+                                type: 'datetime',
+                                categories: ['2017', '2018', '2019', '2020', '2021', '2022', '2023']
+                            },
+                            tooltip: {
+                                x: {
+                                    format: 'year'
+                                },
+                            }
+                        }).render();
+                    });
+                </script>
+                <!-- End Line Chart -->
+
+            </div>
+
+        {% endblock %}
+
+        <h6 class="card-title"> *Predicted Passing Rate based on data from 2010-2022</h6>
+        <button class="btn btn-primary" type="submit" onclick="location.href='/recommend-by-school'">Submit new form</button>
+    </main>
+{% endblock %}
