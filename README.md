@@ -9,7 +9,7 @@ To run the Seekampus web application on your local machine, follow these steps:
 
 Clone the repository using the following command:
 
-`git clone https://github.com/username/seekampus.git`
+`git clone https://github.com/Shenchii/SeeKampus.git`
 
 
 Replace username with your GitHub username.
