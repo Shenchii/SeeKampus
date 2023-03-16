@@ -4,29 +4,29 @@ Lacsam, Shane Adrian A.,
 Mortel, John Raiden C.,
 Siena, Bernadette B. as a part of City College of Calamba coursework.
 
-# Installation
+## Installation
 To run the Seekampus web application on your local machine, follow these steps:
 
 Clone the repository using the following command:
 
-git clone https://github.com/username/seekampus.git
+`git clone https://github.com/username/seekampus.git`
 
 
 Replace username with your GitHub username.
 Navigate to the project directory:
 
-cd seekampus
+`cd seekampus`
 
 
 Create a virtual environment and activate it:
 
-python3 -m venv venv
-source venv/bin/activate
+`python3 -m venv venv`
+`source venv/bin/activate`
 
 
 Install the required dependencies:
 
-pip install -r requirements.txt
+`pip install -r requirements.txt`
 
 
 Set the environment variables:
@@ -34,17 +34,17 @@ Set the environment variables:
 Create a .env file in the project directory
 Define the following variables:
 
-FLASK_APP=seekampus
-FLASK_ENV=development
+`FLASK_APP=seekampus
+FLASK_ENV=development`
 
 
 Initialize the database:
 
-flask init-db
+`flask init-db`
 
 Run the Flask app:
 
-flask run
+`flask run`
 
 
 The Seekampus app should now be running on your local machine at http://localhost:5000/.
