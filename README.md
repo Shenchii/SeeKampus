@@ -7,12 +7,11 @@ Siena, Bernadette B. as a part of City College of Calamba coursework.
 ## Installation
 To run the Seekampus web application on your local machine, follow these steps:
 
-Clone the repository using the following command:
+Clone the repository using the following command in terminal (Powershell,cmd,etc):
 
 `git clone https://github.com/Shenchii/SeeKampus.git`
 
 
-Replace username with your GitHub username.
 Navigate to the project directory:
 
 `cd seekampus`
@@ -48,8 +47,3 @@ Run the Flask app:
 
 `flask run`
 
-
-The Seekampus app should now be running on your local machine at http://localhost:5000/.
-
-Usage
-After installation, you can access the Seekampus web application by opening a web browser and navigating to http://localhost:5000/.
