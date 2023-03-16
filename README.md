@@ -1,5 +1,8 @@
 # SeeKampus
-Seekampus is a Flask-based web application for students to find and book campus facilities such as classrooms, study rooms, and sports facilities. This project is developed by [Your Name] as a part of [Your University] coursework.
+Seekampus is a Flask-based a school recommender system which utilized predicted board examination passing rates of the colleges in CALABARZON and NCR. It was designed to provide college recommendations based on the users’ preferences in terms of the course, location, and tuition fee. This project is developed by Hinggan, Mutya P.,
+Lacsam, Shane Adrian A.,
+Mortel, John Raiden C.,
+Siena, Bernadette B. as a part of City College of Calamba coursework.
 
 # Installation
 To run the Seekampus web application on your local machine, follow these steps:
@@ -47,4 +50,4 @@ flask run
 The Seekampus app should now be running on your local machine at http://localhost:5000/.
 
 Usage
-After installation, you can access the Seekampus web application by opening a web browser and navigating to http://localhost:5000/. From there, you can search for and book campus facilities.
+After installation, you can access the Seekampus web application by opening a web browser and navigating to http://localhost:5000/.
