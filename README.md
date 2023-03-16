@@ -21,6 +21,7 @@ Navigate to the project directory:
 Create a virtual environment and activate it:
 
 `python3 -m venv venv`
+
 `source venv/bin/activate`
 
 
@@ -34,8 +35,9 @@ Set the environment variables:
 Create a .env file in the project directory
 Define the following variables:
 
-`FLASK_APP=seekampus
-FLASK_ENV=development`
+`FLASK_APP=seekampus`
+
+`FLASK_ENV=development`
 
 
 Initialize the database:
