@@ -1,7 +1,7 @@
 # SeeKampus
 Seekampus is a Flask-based web application for students to find and book campus facilities such as classrooms, study rooms, and sports facilities. This project is developed by [Your Name] as a part of [Your University] coursework.
 
-Installation
+# Installation
 To run the Seekampus web application on your local machine, follow these steps:
 
 Clone the repository using the following command:
